@@ -1,0 +1,99 @@
+{
+  "counselors": [
+    {
+      "id": "c1",
+      "name": "Dr. Sarah Johnson",
+      "title": "Licensed Clinical Psychologist",
+      "specialties": ["Depression", "Anxiety", "Academic Stress"],
+      "languages": ["English", "Spanish"],
+      "rating": 4.9,
+      "experience": "8 years",
+      "bio": "Specializing in cognitive-behavioral therapy for college students facing academic and social challenges.",
+      "modes": ["In-person", "Telehealth"],
+      "availability": {
+        "2024-01-15": ["09:00", "11:00", "14:00", "16:00"],
+        "2024-01-16": ["10:00", "13:00", "15:00"],
+        "2024-01-17": ["09:00", "14:00", "16:00", "17:00"],
+        "2024-01-18": ["11:00", "13:00", "15:00"],
+        "2024-01-19": ["09:00", "10:00", "14:00"]
+      }
+    },
+    {
+      "id": "c2",
+      "name": "Dr. Michael Chen",
+      "title": "Licensed Professional Counselor",
+      "specialties": ["ADHD", "Social Anxiety", "Relationship Issues"],
+      "languages": ["English", "Mandarin"],
+      "rating": 4.8,
+      "experience": "6 years",
+      "bio": "Experienced in working with students from diverse cultural backgrounds, focusing on mindfulness-based approaches.",
+      "modes": ["In-person", "Telehealth"],
+      "availability": {
+        "2024-01-15": ["10:00", "12:00", "15:00"],
+        "2024-01-16": ["09:00", "11:00", "14:00", "16:00"],
+        "2024-01-17": ["10:00", "13:00", "15:00"],
+        "2024-01-18": ["09:00", "12:00", "14:00", "17:00"],
+        "2024-01-19": ["11:00", "13:00", "16:00"]
+      }
+    },
+    {
+      "id": "c3",
+      "name": "Dr. Emily Rodriguez",
+      "title": "Licensed Marriage and Family Therapist",
+      "specialties": ["Family Issues", "Trauma", "LGBTQ+ Support"],
+      "languages": ["English", "Spanish"],
+      "rating": 4.9,
+      "experience": "10 years",
+      "bio": "Passionate about creating safe spaces for students to explore identity and process life transitions.",
+      "modes": ["In-person", "Telehealth"],
+      "availability": {
+        "2024-01-15": ["11:00", "13:00", "16:00"],
+        "2024-01-16": ["09:00", "12:00", "15:00", "17:00"],
+        "2024-01-17": ["10:00", "14:00", "16:00"],
+        "2024-01-18": ["09:00", "11:00", "13:00"],
+        "2024-01-19": ["12:00", "14:00", "15:00", "17:00"]
+      }
+    },
+    {
+      "id": "c4",
+      "name": "Dr. James Wilson",
+      "title": "Licensed Clinical Social Worker",
+      "specialties": ["Substance Use", "Depression", "Crisis Intervention"],
+      "languages": ["English"],
+      "rating": 4.7,
+      "experience": "12 years",
+      "bio": "Specializes in helping students overcome substance use issues and develop healthy coping mechanisms.",
+      "modes": ["In-person", "Telehealth"],
+      "availability": {
+        "2024-01-15": ["09:00", "12:00", "14:00"],
+        "2024-01-16": ["10:00", "13:00", "16:00"],
+        "2024-01-17": ["09:00", "11:00", "15:00", "17:00"],
+        "2024-01-18": ["10:00", "14:00", "16:00"],
+        "2024-01-19": ["09:00", "13:00", "15:00"]
+      }
+    }
+  ],
+  "timeSlots": [
+    "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"
+  ],
+  "appointmentTypes": [
+    {
+      "id": "initial",
+      "name": "Initial Consultation",
+      "duration": 60,
+      "description": "First-time appointment for assessment and treatment planning"
+    },
+    {
+      "id": "followup",
+      "name": "Follow-up Session",
+      "duration": 45,
+      "description": "Regular therapy session"
+    },
+    {
+      "id": "crisis",
+      "name": "Crisis Session",
+      "duration": 60,
+      "description": "Urgent support for mental health crisis"
+    }
+  ]
+}

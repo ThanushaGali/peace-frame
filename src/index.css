@@ -2,57 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Mental Health App Design System - Calming, Professional, Accessible */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background & Text */
+    --background: 210 25% 98%; /* Soft warm white */
+    --foreground: 215 25% 25%; /* Professional dark blue-gray */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card & Container Surfaces */
+    --card: 0 0% 100%; /* Pure white for cards */
+    --card-foreground: 215 25% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Calming Teal for Trust & Healing */
+    --primary: 180 35% 45%; /* Therapeutic teal */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 180 35% 85%; /* Light teal for backgrounds */
+    --primary-glow: 180 45% 65%; /* Brighter teal for accents */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Soft Blue for Serenity */
+    --secondary: 210 30% 88%; /* Very light blue */
+    --secondary-foreground: 215 25% 25%;
+    --secondary-dark: 210 45% 25%; /* Dark blue for headings */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Healing Colors */
+    --healing-green: 150 40% 55%; /* Hope and growth */
+    --healing-green-light: 150 40% 90%;
+    --calming-purple: 260 35% 65%; /* Mindfulness and balance */
+    --calming-purple-light: 260 35% 95%;
+    --warm-amber: 45 85% 70%; /* Comfort and warmth */
+    --warm-amber-light: 45 85% 95%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Muted & Subtle */
+    --muted: 210 25% 94%; /* Very light blue-gray */
+    --muted-foreground: 215 15% 50%; /* Medium gray */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Accent - Gentle Purple */
+    --accent: 260 35% 92%; /* Very light purple */
+    --accent-foreground: 260 35% 30%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Status Colors */
+    --success: 150 60% 50%; /* Green for success */
+    --success-foreground: 0 0% 100%;
+    --warning: 45 85% 60%; /* Amber for warnings */
+    --warning-foreground: 45 85% 15%;
+    --destructive: 0 65% 55%; /* Soft red for errors */
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    /* Interactive Elements */
+    --border: 210 25% 88%; /* Light blue-gray borders */
+    --input: 210 25% 94%; /* Input backgrounds */
+    --ring: 180 35% 45%; /* Focus rings match primary */
 
-    --sidebar-background: 0 0% 98%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-healing: linear-gradient(135deg, hsl(var(--healing-green)), hsl(var(--primary)));
+    --gradient-calm: linear-gradient(135deg, hsl(var(--calming-purple)), hsl(var(--primary-light)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--warm-amber)), hsl(var(--healing-green)));
+    --gradient-surface: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 8px 30px -8px hsl(var(--primary) / 0.15);
+    --shadow-strong: 0 12px 40px -12px hsl(var(--primary) / 0.2);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Border Radius */
+    --radius: 0.75rem; /* More rounded for friendliness */
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Sidebar Theme */
+    --sidebar-background: 210 30% 96%; /* Light blue-gray */
+    --sidebar-foreground: 215 25% 35%;
+    --sidebar-primary: 180 35% 45%; /* Match primary */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 25% 90%;
+    --sidebar-accent-foreground: 215 25% 25%;
+    --sidebar-border: 210 25% 85%;
+    --sidebar-ring: 180 35% 45%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {

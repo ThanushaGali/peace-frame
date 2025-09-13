@@ -22,10 +22,33 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          light: "hsl(var(--primary-light))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          dark: "hsl(var(--secondary-dark))",
+        },
+        healing: {
+          green: "hsl(var(--healing-green))",
+          "green-light": "hsl(var(--healing-green-light))",
+        },
+        calming: {
+          purple: "hsl(var(--calming-purple))",
+          "purple-light": "hsl(var(--calming-purple-light))",
+        },
+        warm: {
+          amber: "hsl(var(--warm-amber))",
+          "amber-light": "hsl(var(--warm-amber-light))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -57,6 +80,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-healing": "var(--gradient-healing)",
+        "gradient-calm": "var(--gradient-calm)",
+        "gradient-warm": "var(--gradient-warm)",
+        "gradient-surface": "var(--gradient-surface)",
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        medium: "var(--shadow-medium)",
+        strong: "var(--shadow-strong)",
+      },
+      transitionTimingFunction: {
+        smooth: "var(--transition-smooth)",
+        bounce: "var(--transition-bounce)",
       },
       borderRadius: {
         lg: "var(--radius)",
