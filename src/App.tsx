@@ -6,7 +6,8 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { Globe, Heart } from "lucide-react";
+import { Globe } from "lucide-react";
+import { Heart } from "lucide-react";
 
 // Pages
 import Home from "./pages/Home";
