@@ -33,7 +33,13 @@ const Chat = () => {
   useEffect(() => {
     const savedMessages = localStorage.getItem('mindSupport_chatHistory');
     if (savedMessages) {
-      setMessages(JSON.parse(savedMessages));
+      const parsedMessages = JSON.parse(savedMessages);
+      // Convert timestamp strings back to Date objects
+      const messagesWithDateObjects = parsedMessages.map((message: any) => ({
+        ...message,
+        timestamp: new Date(message.timestamp)
+      }));
+      setMessages(messagesWithDateObjects);
     } else {
       // Welcome message
       const welcomeMessage: Message = {
