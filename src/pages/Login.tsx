@@ -65,7 +65,7 @@ const Login = ({ onLogin }: LoginProps) => {
 
       if (user) {
         onLogin({ role: user.role, name: user.name });
-        navigate('/');
+        navigate('/dashboard');
       } else {
         setError("Invalid email or password. Try: student@example.com / demo123");
       }
@@ -93,7 +93,7 @@ const Login = ({ onLogin }: LoginProps) => {
     // Simulate registration
     setTimeout(() => {
       onLogin({ role: registerForm.role, name: registerForm.name });
-      navigate('/');
+      navigate('/dashboard');
       setIsLoading(false);
     }, 1000);
   };

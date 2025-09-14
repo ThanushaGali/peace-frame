@@ -66,12 +66,21 @@ const Dashboard = () => {
   ];
 
   const kpiData = {
-    totalScreenings: 344,
-    totalBookings: 176,
-    avgWaitTime: "2.3 days",
-    forumPosts: 758,
-    riskPosts: 23,
-    crisisInterventions: 7
+    totalScreeningsToday: 23,
+    totalScreeningsMonth: 344,
+    totalScreeningsOverall: 2847,
+    severityMild: 145,
+    severityModerate: 89,
+    severitySevere: 34,
+    bookingsToday: 12,
+    bookingsConfirmed: 8,
+    bookingsPending: 4,
+    forumDiscussions24h: 47,
+    resourceDownloads: 389,
+    resourceViews: 1247,
+    flaggedPosts: 23,
+    emergencyAlerts: 7,
+    anonymousBookings: 15
   };
 
   const exportData = (type: string) => {
@@ -119,65 +128,124 @@ const Dashboard = () => {
         </AlertDescription>
       </Alert>
 
-      {/* KPI Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+      {/* Key Metrics Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-8">
+        {/* Total Screenings */}
         <Card>
-          <CardContent className="p-4 text-center">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-2">
-              <ClipboardCheck className="w-5 h-5 text-white" />
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-2xl font-bold text-secondary-dark">{kpiData.totalScreeningsToday}</div>
+                <p className="text-xs text-muted-foreground">Today</p>
+              </div>
+              <ClipboardCheck className="w-8 h-8 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-secondary-dark">{kpiData.totalScreenings}</div>
-            <p className="text-xs text-muted-foreground">Total Screenings</p>
+            <div className="mt-2 text-xs text-muted-foreground">
+              This Month: {kpiData.totalScreeningsMonth} • Total: {kpiData.totalScreeningsOverall}
+            </div>
           </CardContent>
         </Card>
 
+        {/* Severity Breakdown */}
         <Card>
-          <CardContent className="p-4 text-center">
-            <div className="w-10 h-10 bg-gradient-healing rounded-lg flex items-center justify-center mx-auto mb-2">
-              <Calendar className="w-5 h-5 text-white" />
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-sm font-medium">Severity Levels</div>
+              <TrendingUp className="w-6 h-6 text-healing-green" />
             </div>
-            <div className="text-2xl font-bold text-secondary-dark">{kpiData.totalBookings}</div>
-            <p className="text-xs text-muted-foreground">Bookings</p>
+            <div className="space-y-1 text-xs">
+              <div className="flex justify-between">
+                <span className="text-healing-green">Mild</span>
+                <span>{kpiData.severityMild}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-warm-amber">Moderate</span>
+                <span>{kpiData.severityModerate}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-destructive">Severe</span>
+                <span>{kpiData.severitySevere}</span>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
+        {/* Counsellor Bookings Today */}
         <Card>
-          <CardContent className="p-4 text-center">
-            <div className="w-10 h-10 bg-gradient-calm rounded-lg flex items-center justify-center mx-auto mb-2">
-              <Clock className="w-5 h-5 text-white" />
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-2xl font-bold text-secondary-dark">{kpiData.bookingsToday}</div>
+                <p className="text-xs text-muted-foreground">Bookings Today</p>
+              </div>
+              <Calendar className="w-8 h-8 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-secondary-dark">{kpiData.avgWaitTime}</div>
-            <p className="text-xs text-muted-foreground">Avg Wait Time</p>
+            <div className="mt-2 text-xs">
+              <span className="text-healing-green">✓ {kpiData.bookingsConfirmed} Confirmed</span>
+              <span className="text-warm-amber ml-2">⏳ {kpiData.bookingsPending} Pending</span>
+            </div>
           </CardContent>
         </Card>
 
+        {/* Active Forum Discussions */}
         <Card>
-          <CardContent className="p-4 text-center">
-            <div className="w-10 h-10 bg-gradient-warm rounded-lg flex items-center justify-center mx-auto mb-2">
-              <MessageCircle className="w-5 h-5 text-white" />
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-2xl font-bold text-secondary-dark">{kpiData.forumDiscussions24h}</div>
+                <p className="text-xs text-muted-foreground">Active Discussions</p>
+              </div>
+              <MessageCircle className="w-8 h-8 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-secondary-dark">{kpiData.forumPosts}</div>
-            <p className="text-xs text-muted-foreground">Forum Posts</p>
+            <div className="mt-2 text-xs text-muted-foreground">Last 24 hours</div>
           </CardContent>
         </Card>
 
+        {/* Resource Downloads/Views */}
         <Card>
-          <CardContent className="p-4 text-center">
-            <div className="w-10 h-10 bg-destructive rounded-lg flex items-center justify-center mx-auto mb-2">
-              <AlertTriangle className="w-5 h-5 text-white" />
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-sm font-medium">Resources</div>
+              <Download className="w-6 h-6 text-primary" />
             </div>
-            <div className="text-2xl font-bold text-secondary-dark">{kpiData.riskPosts}</div>
-            <p className="text-xs text-muted-foreground">Risk Posts</p>
+            <div className="space-y-1 text-xs">
+              <div className="flex justify-between">
+                <span className="flex items-center gap-1">
+                  <Download className="w-3 h-3" />Downloads
+                </span>
+                <span>{kpiData.resourceDownloads}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="flex items-center gap-1">
+                  <Eye className="w-3 h-3" />Views
+                </span>
+                <span>{kpiData.resourceViews}</span>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
+        {/* Emergency Monitoring */}
         <Card>
-          <CardContent className="p-4 text-center">
-            <div className="w-10 h-10 bg-destructive rounded-lg flex items-center justify-center mx-auto mb-2">
-              <Users className="w-5 h-5 text-white" />
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-sm font-medium text-destructive">Emergency</div>
+              <AlertTriangle className="w-6 h-6 text-destructive" />
             </div>
-            <div className="text-2xl font-bold text-secondary-dark">{kpiData.crisisInterventions}</div>
-            <p className="text-xs text-muted-foreground">Crisis Cases</p>
+            <div className="space-y-1 text-xs">
+              <div className="flex justify-between">
+                <span>🚨 Alerts</span>
+                <span className="text-destructive font-bold">{kpiData.emergencyAlerts}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>🔎 Flagged Posts</span>
+                <span className="text-warm-amber">{kpiData.flaggedPosts}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>📌 Anonymous</span>
+                <span>{kpiData.anonymousBookings}</span>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -348,11 +416,91 @@ const Dashboard = () => {
                 <span className="font-medium text-destructive">High Priority</span>
               </div>
               <p className="text-sm text-destructive/80">
-                {kpiData.riskPosts} posts contain concerning language and require immediate review by moderators.
+                {kpiData.flaggedPosts} posts contain concerning language and require immediate review by moderators.
               </p>
               <Button size="sm" variant="destructive" className="mt-3">
                 Review High-Risk Posts
               </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Student Support Monitoring */}
+      <div className="grid lg:grid-cols-2 gap-6 mb-8">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-destructive">
+              <AlertTriangle className="w-5 h-5" />
+              Flagged Forum Posts
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <Alert className="border-destructive bg-destructive/5">
+                <AlertDescription className="text-destructive">
+                  <div className="flex items-center justify-between">
+                    <span><strong>High Priority:</strong> 5 posts contain keywords: "hopeless", "suicidal thoughts"</span>
+                    <Button size="sm" variant="destructive">Review</Button>
+                  </div>
+                </AlertDescription>
+              </Alert>
+              
+              <Alert className="border-warm-amber bg-warm-amber/5">
+                <AlertDescription className="text-warm-amber">
+                  <div className="flex items-center justify-between">
+                    <span><strong>Medium Priority:</strong> 12 posts mention "can't cope", "overwhelmed"</span>
+                    <Button size="sm" variant="outline">Monitor</Button>
+                  </div>
+                </AlertDescription>
+              </Alert>
+              
+              <Alert className="border-primary bg-primary/5">
+                <AlertDescription className="text-primary">
+                  <div className="flex items-center justify-between">
+                    <span><strong>Low Priority:</strong> 6 posts about "exam stress", "deadline pressure"</span>
+                    <Button size="sm" variant="ghost">View</Button>
+                  </div>
+                </AlertDescription>
+              </Alert>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-destructive">
+              <Users className="w-5 h-5" />
+              Emergency Alerts & Anonymous Bookings
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="p-4 bg-destructive/5 rounded-lg border border-destructive/20">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-medium text-destructive">🚨 Emergency Alerts Today</span>
+                  <Badge variant="destructive">{kpiData.emergencyAlerts}</Badge>
+                </div>
+                <p className="text-sm text-destructive/80 mb-3">
+                  Students triggered "Immediate Help" during AI chat sessions
+                </p>
+                <Button size="sm" variant="destructive" className="w-full">
+                  View Emergency Cases
+                </Button>
+              </div>
+
+              <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-medium text-primary">📌 Anonymous Bookings</span>
+                  <Badge variant="outline">{kpiData.anonymousBookings}</Badge>
+                </div>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Tokens awaiting counsellor assignment
+                </p>
+                <Button size="sm" variant="outline" className="w-full">
+                  Assign Counsellors
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
